@@ -1,0 +1,57 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #87CEEB; /* Azul celeste */
+  }
+  
+  /* Contenedor del formulario */
+  .contenedor-login {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Título del formulario */
+  .titulo-login {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Formulario */
+  .formulario-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Campos del formulario */
+  .campo-login {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+  }
+  
+  /* Botón de inicio de sesión */
+  .boton-login {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Hover del botón */
+  .boton-login:hover {
+    background-color: #3e8e41;
+  }
+  
