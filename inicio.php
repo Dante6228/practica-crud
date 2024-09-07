@@ -2,6 +2,23 @@
 
 session_start();
 
+require_once __DIR__ . "/php/conexion.php";
+
+$pdo = Conexion::connection();
+
+if (!$pdo) {
+    throw new UnexpectedValueException("Error en la conexión a la base de datos.");
+}
+
+$query = "SELECT u.id, u.nombre, u.Apaterno, u.Amaterno, u.usuario, u.pwd, u.status,tu.descripcion AS tipo_usuario_descripcion FROM usuario u INNER JOIN tipo_usuario tu ON u.tipo_us = tu.id;";
+
+$statement = $pdo->prepare($query);
+$statement->execute();
+$resultado = $statement->fetchAll(PDO::FETCH_ASSOC);
+$statement = $pdo->prepare($query);
+$statement->execute();
+$resultado = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -91,12 +108,46 @@ session_start();
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-900">Usuarios</h1>
-                    </div>
                         
+                    <div class="tabla">
+                        <table>
+                            <thead>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
+                                <th>Usuario</th>
+                                <th>Contraseña</th>
+                                <th>Tipo de usuario</th>
+                                <th>Status</th>
+                                <th colspan="2">Acciones</th>
+                            </thead>
+                            <tbody>
+                            <?php
+                    
+                                foreach ($resultado as $row) {
+                                    echo "<td>" . $row['id'] . "</td>";
+                                    echo "<td>" . $row['nombre'] . "</td>";
+                                    echo "<td>" . $row['Apaterno'] . "</td>";
+                                    echo "<td>" . $row['Amaterno'] . "</td>";
+                                    echo "<td>" . $row['usuario'] . "</td>";
+                                    echo "<td>" . $row['pwd'] . "</td>";
+                                    echo "<td>" . $row['tipo_usuario_descripcion'] . "</td>";
+                                    if ( $row['status'] == 1){
+                                        echo "<td>Activo</td>";
+                                    }else{
+                                        echo "<td>Inactivo</td>";
+                                    }
+                                    echo '<form id="formularioUsuarios" method="post" action="php/procesar_usuario.php">';
+                                    echo "<td><button type='submit' name='action' value='modificar'>Modificar</button></td>";
+                                    echo "<td><button type='submit' name='action' value='eliminar'>Eliminar</button></td>";
+                                    echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
+                                    echo "</tr>";
+                                }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
                 <!-- /.container-fluid -->
