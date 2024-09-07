@@ -98,6 +98,18 @@ $resultado2 = $statement->fetch(PDO::FETCH_ASSOC);
                     </tr>
                     <tr>
                         <td>
+                            <label for="status">Status:</label>
+                        </td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="1">Activo</option>
+                                <option value="0">Inactivo</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <input type="hidden" name="idUs" value="<?php $idUs = $_GET['id']; echo $idUs;  ?>" id="idUs">
+                    <tr>
+                        <td>
                             <input type="submit" value="Modificar">
                         </td>
                     </tr>
