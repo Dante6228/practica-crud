@@ -44,7 +44,17 @@
                 $mensajeError = "Regisro exitoso, por favor inicia sesión";
                 ?>
 
-                <div class="error"> <?php echo $mensajeError ?></div>
+                <div class="mensaje"> <?php echo $mensajeError ?></div>
+
+        <?php } ?>
+
+        <?php
+
+        if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'cierre') {
+            $mensajeError = "Cierre de sesión exitoso, vuelva pronto!";
+            ?>
+
+            <div class="mensaje"> <?php echo $mensajeError ?></div>
 
         <?php } ?>
 

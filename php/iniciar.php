@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location:../index.php?mensaje=error');
             session_destroy();
         } else{
-            header('Location: ../pagina.html');
+            header('Location: ../inicio.php');
         }
     }
 }
