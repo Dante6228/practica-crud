@@ -1,0 +1,38 @@
+.tabla{
+    border-radius: 15px;
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: 7px 8px 9px 2px rgb(0, 0, 0, .3);
+}
+
+table{
+    padding: 25px;
+    background-color: antiquewhite;
+    border-radius: 15px;
+}
+
+td{
+    padding: 10px;
+}
+
+td:first-child{
+    font-weight: bolder;
+}
+
+th{
+    padding: 10px;
+    font-weight: bolder;
+    color: black;
+    background-color: azure;
+    text-align: center;
+}
+
+th:first-child{
+    border-radius: 15px 0px 0px 0px;
+}
+
+th:last-child{
+    border-radius: 0px 15px 0px 0px;
+}

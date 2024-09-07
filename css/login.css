@@ -55,3 +55,7 @@ body {
     background-color: #3e8e41;
   }
   
+  .error{
+    background-color: rgb(252, 181, 181);
+    font-weight: bolder;
+  }
